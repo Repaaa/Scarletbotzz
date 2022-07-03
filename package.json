@@ -1,6 +1,6 @@
 {
- "name": "CheemsBot-MD",
- "description": "Multi Device Whatsapp Bot By Xeon",
+ "name": "Scarlet Bot",
+ "description": "Multi Device Whatsapp Bot By Repa",
  "version": "3.0.0",
  "main": "index.js",
  "type": "commonjs",
@@ -18,7 +18,7 @@
   "bot-md",
   "multi-device"
  ],
- "author": "Xeon",
+ "author": "Repa",
  "license": "MIT",
  "dependencies": {
   "@adiwajshing/baileys": "^4.0.1",
