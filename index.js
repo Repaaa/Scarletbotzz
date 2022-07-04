@@ -44,7 +44,7 @@ const {
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
 
 async function startXeonBotInc() {
-console.log(color(figlet.textSync('Cheems Bot-MD', {
+console.log(color(figlet.textSync('Scarlet Bot-MD', {
 		font: 'Pagga',
 		horizontalLayout: 'default',
 		vertivalLayout: 'default',
@@ -52,9 +52,9 @@ console.log(color(figlet.textSync('Cheems Bot-MD', {
 		whitespaceBreak: true
         }), 'yellow'))
 console.log(color('\n🐶 YT CHANNEL: Xeon ','silver'))
-console.log(color('🐶 GITHUB: DGXeon ','silver'))
-console.log(color('🐶 WA NUMBER: +916909137213 ','silver'))
-console.log(color('  🦄Xeon Bot Inc. 2022🦄','mediumseagreen'))
+console.log(color('🐶 GITHUB: repa-chan ','silver'))
+console.log(color('🐶 WA NUMBER: 6285870305499 ','silver'))
+console.log(color('  🦄 Scarlet Bot Inc. 2022🦄','mediumseagreen'))
     console.log(color('🐶','red'), color('I Wrote This Script By Myself!', 'yellow'))
     console.log(color('🐶','red'), color('Source Code Version: 3.0', 'aqua'))
     console.log(color('🐶','red'), color('Bug? Error? Suggestion? Talk to developer:', 'aqua'))
@@ -63,7 +63,7 @@ console.log(color('  🦄Xeon Bot Inc. 2022🦄','mediumseagreen'))
     console.log(color('🐶', 'cyan'), color('Welcome Back Owner! Hope You Doing Well~', 'magenta'))
     console.log(color('🐶','red'), color('Thanks For Using Cheems Bot', 'white'))
     let { version, isLatest } = await fetchLatestBaileysVersion()
-    const XeonBotInc = XeonBotIncConnect({
+    const XeonBotInc = ScarletBotIncConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
         browser: ['Subscribe Xeon','Safari','1.0.0'],
@@ -74,17 +74,17 @@ console.log(color('  🦄Xeon Bot Inc. 2022🦄','mediumseagreen'))
 store.bind(XeonBotInc.ev)
 
     // anticall auto block
-    XeonBotInc.ws.on('CB:call', async (json) => {
+    ScarletBotInc.ws.on('CB:call', async (json) => {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
     let pa7rick = await XeonBotInc.sendContact(callerId, global.owner)
-    XeonBotInc.sendMessage(callerId, { text: `Automatic Block System!\nDon't Call Bot!\nPlease Ask Or Contact The Owner To Unblock You!`}, { quoted : pa7rick })
+    ScarletBotInc.sendMessage(callerId, { text: `Automatic Block System!\nDon't Call Bot!\nPlease Ask Or Contact The Owner To Unblock You!`}, { quoted : pa7rick })
     await sleep(8000)
     await XeonBotInc.updateBlockStatus(callerId, "block")
     }
     })
 
-XeonBotInc.ev.on('messages.upsert', async chatUpdate => {
+ScarletBotInc.ev.on('messages.upsert', async chatUpdate => {
 try {
 mek = chatUpdate.messages[0]
 if (!mek.message) return
@@ -109,15 +109,15 @@ XeonBotInc.ev.on('groups.update', async pea => {
        }
        let wm_fatih = { url : ppgc }
        if (pea[0].announce == true) {
-       XeonBotInc.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nThe group has been closed by admin, Now only admin can send messages !`, `${botname}`, wm_fatih, [])
+       ScarletBotInc.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nThe group has been closed by admin, Now only admin can send messages !`, `${botname}`, wm_fatih, [])
        } else if(pea[0].announce == false) {
-       XeonBotInc.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nThe group has been opened by admin, Now participants can send messages !`, `${botname}`, wm_fatih, [])
+       ScarletBotInc.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nThe group has been opened by admin, Now participants can send messages !`, `${botname}`, wm_fatih, [])
        } else if (pea[0].restrict == true) {
-       XeonBotInc.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup info has been restricted, Now only admin can edit group info !`, `${botname}`, wm_fatih, [])
+       ScarletBotInc.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup info has been restricted, Now only admin can edit group info !`, `${botname}`, wm_fatih, [])
        } else if (pea[0].restrict == false) {
        XeonBotInc.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup info has been opened, Now participants can edit group info !`, `${botname}`, wm_fatih, [])
        } else {
-       XeonBotInc.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup Subject has been changed to *${pea[0].subject}*`, `${botname}`, wm_fatih, [])
+       ScarletBotInc.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup Subject has been changed to *${pea[0].subject}*`, `${botname}`, wm_fatih, [])
      }
     })
 
@@ -129,7 +129,7 @@ return list[Math.floor(list.length * Math.random())]
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
 
-XeonBotInc.ev.on('group-participants.update', async (anu) => {
+ScarletBotInc.ev.on('group-participants.update', async (anu) => {
         console.log(anu)
         //if (!wlcm.includes(anu.id)) return //remove forwad slashes to make it welcome on off
         try {
@@ -168,7 +168,7 @@ XeonBotInc.ev.on('group-participants.update', async (anu) => {
    │✑ ${xtime} ${xdate}
    └───────────────┈ ⳹`
    //if you copy the code value,
-   //dont forget to put my name(Xeon) as credit
+   //dont forget to put my name(Scarlet) as credit
    //you fail to put, i sue you for sure!
 let buttons = [
 {buttonId: `wkwwk`, buttonText: {displayText: 'Welcome 💐'}, type: 1}
@@ -180,7 +180,7 @@ jpegThumbnail:buffer,
 mentions: [num],
 fileName: `${metadata.subject}`,
 fileLength: 99999999999999,
-caption: xeonbody,
+caption: Scarletbody,
 footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
@@ -193,7 +193,7 @@ sourceUrl: `${websitex}`,
 mediaUrl: `${websitex}`
 }}
 }
-XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
+ScarletBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
                 } else if (anu.action == 'remove') {
                 	const buffer = await getBuffer(ppuser)
                     const xeontime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
@@ -224,13 +224,13 @@ jpegThumbnail:buffer,
 mentions: [num],
 fileName: `${metadata.subject}`,
 fileLength: 99999999999999,
-caption: xeonbody,
+caption: Scarletbody,
 footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
 title: `${ownername}`,
-body: `Bye! my friend, take care.`,
+body: `Bye! Semoga tenang di alam sana😘💅🏻.`,
 mediaType:2,
 thumbnail: buffer,
 sourceUrl: `${websitex}`,
@@ -261,7 +261,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
         }
     })
 
-    XeonBotInc.getName = (jid, withoutContact  = false) => {
+    ScarletBotInc.getName = (jid, withoutContact  = false) => {
         id = XeonBotInc.decodeJid(jid)
         withoutContact = XeonBotInc.withoutContact || withoutContact 
         let v
@@ -287,10 +287,10 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
 	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await XeonBotInc.getName(i + '@s.whatsapp.net')}\nFN:${global.ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${global.ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${global.socialm}\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${global.location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
-	XeonBotInc.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
+	ScarletBotInc.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
     }
     
-    XeonBotInc.setStatus = (status) => {
+    ScarletBotInc.setStatus= (status) => {
         XeonBotInc.query({
             tag: 'iq',
             attrs: {
@@ -307,11 +307,11 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
         return status
     }
 	
-    XeonBotInc.public = true
+    ScarletBotInc.public = true
 
-    XeonBotInc.serializeM = (m) => smsg(XeonBotInc, m, store)
+    ScarletBotInc.serializeM = (m) => smsg(XeonBotInc, m, store)
 
-    XeonBotInc.ev.on('connection.update', async (update) => {
+    ScarletBotInc.ev.on('connection.update', async (update) => {
         const { connection, lastDisconnect } = update	    
         if (connection === 'close') {
         let reason = lastDisconnect.error ? lastDisconnect?.error?.output.statusCode : 0;
@@ -327,7 +327,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
         console.log('Connected...', update)
     })
 
-    XeonBotInc.ev.on('creds.update', saveState)
+    ScarletBotInc.ev.on('creds.update', saveState)
 
     // Add Other
    
@@ -341,7 +341,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} options
      * @returns
      */
-    XeonBotInc.send5ButImg = async (jid , text = '' , footer = '', img, but = [], thumb, options = {}) =>{
+    ScarletBotInc.send5ButImg = async (jid , text = '' , footer = '', img, but = [], thumb, options = {}) =>{
         let message = await prepareWAMessageMedia({ image: img, jpegThumbnail:thumb }, { upload: XeonBotInc.waUploadToServer })
         var template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
         templateMessage: {
@@ -353,7 +353,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
             }
             }
             }), options)
-            XeonBotInc.relayMessage(jid, template.message, { messageId: template.key.id })
+            ScarletBotInc.relayMessage(jid, template.message, { messageId: template.key.id })
     }
 
     /**
@@ -365,7 +365,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} quoted 
      * @param {*} options 
      */
-    XeonBotInc.sendButtonText = (jid, buttons = [], text, footer, quoted = '', options = {}) => {
+    ScarletBotInc.sendButtonText = (jid, buttons = [], text, footer, quoted = '', options = {}) => {
         let buttonMessage = {
             text,
             footer,
@@ -373,7 +373,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
             headerType: 2,
             ...options
         }
-        XeonBotInc.sendMessage(jid, buttonMessage, { quoted, ...options })
+        ScarletBotInc.sendMessage(jid, buttonMessage, { quoted, ...options })
     }
     
     /**
@@ -384,7 +384,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} options 
      * @returns 
      */
-    XeonBotInc.sendText = (jid, text, quoted = '', options) => XeonBotInc.sendMessage(jid, { text: text, ...options }, { quoted })
+    ScarletBotInc.sendText = (jid, text, quoted = '', options) => XeonBotInc.sendMessage(jid, { text: text, ...options }, { quoted })
 
     /**
      * 
@@ -395,9 +395,9 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} options 
      * @returns 
      */
-    XeonBotInc.sendImage = async (jid, path, caption = '', quoted = '', options) => {
+    ScarletBotInc.sendImage = async (jid, path, caption = '', quoted = '', options) => {
 	let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
-        return await XeonBotInc.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted })
+        return await ScarletBotInc.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted })
     }
 
     /**
@@ -409,9 +409,9 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} options 
      * @returns 
      */
-    XeonBotInc.sendVideo = async (jid, path, caption = '', quoted = '', gif = false, options) => {
+    ScarletBotInc.sendVideo = async (jid, path, caption = '', quoted = '', gif = false, options) => {
         let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
-        return await XeonBotInc.sendMessage(jid, { video: buffer, caption: caption, gifPlayback: gif, ...options }, { quoted })
+        return await ScarletBotInc.sendMessage(jid, { video: buffer, caption: caption, gifPlayback: gif, ...options }, { quoted })
     }
 
     /**
@@ -423,9 +423,9 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} options 
      * @returns 
      */
-    XeonBotInc.sendAudio = async (jid, path, quoted = '', ptt = false, options) => {
+    ScarletBotInc.sendAudio = async (jid, path, quoted = '', ptt = false, options) => {
         let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
-        return await XeonBotInc.sendMessage(jid, { audio: buffer, ptt: ptt, ...options }, { quoted })
+        return await ScarletBotInc.sendMessage(jid, { audio: buffer, ptt: ptt, ...options }, { quoted })
     }
 
     /**
@@ -436,7 +436,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} options 
      * @returns 
      */
-    XeonBotInc.sendTextWithMentions = async (jid, text, quoted, options = {}) => XeonBotInc.sendMessage(jid, { text: text, contextInfo: { mentionedJid: [...text.matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net') }, ...options }, { quoted })
+    ScarletBotInc.sendTextWithMentions = async (jid, text, quoted, options = {}) => XeonBotInc.sendMessage(jid, { text: text, contextInfo: { mentionedJid: [...text.matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net') }, ...options }, { quoted })
 
     /**
      * 
@@ -446,7 +446,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} options 
      * @returns 
      */
-    XeonBotInc.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
+    ScarletBotInc.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
         let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
         let buffer
         if (options && (options.packname || options.author)) {
@@ -455,7 +455,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
             buffer = await imageToWebp(buff)
         }
 
-        await XeonBotInc.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
+        await ScarletBotInc.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
         return buffer
     }
 
@@ -467,7 +467,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} options 
      * @returns 
      */
-    XeonBotInc.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {
+    ScarletBotInc.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {
         let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
         let buffer
         if (options && (options.packname || options.author)) {
@@ -479,7 +479,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
         await XeonBotInc.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
         return buffer
     }
-	XeonBotInc.sendMedia = async (jid, path, fileName = '', caption = '', quoted = '', options = {}) => {
+	ScarletBotInc.sendMedia = async (jid, path, fileName = '', caption = '', quoted = '', options = {}) => {
         let types = await XeonBotInc.getFile(path, true)
            let { mime, ext, res, data, filename } = types
            if (res && res.status !== 200 || file.length <= 65536) {
@@ -500,7 +500,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
        else if (/video/.test(mime)) type = 'video'
        else if (/audio/.test(mime)) type = 'audio'
        else type = 'document'
-       await XeonBotInc.sendMessage(jid, { [type]: { url: pathFile }, caption, mimetype, fileName, ...options }, { quoted, ...options })
+       await ScarletBotInc.sendMessage(jid, { [type]: { url: pathFile }, caption, mimetype, fileName, ...options }, { quoted, ...options })
        return fs.promises.unlink(pathFile)
        }
     /**
@@ -510,7 +510,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} attachExtension 
      * @returns 
      */
-    XeonBotInc.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => {
+    ScarletBotInc.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => {
         let quoted = message.msg ? message.msg : message
         let mime = (message.msg || message).mimetype || ''
         let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]
@@ -526,7 +526,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
         return trueFileName
     }
 
-    XeonBotInc.downloadMediaMessage = async (message) => {
+    ScarletBotInc.downloadMediaMessage = async (message) => {
         let mime = (message.msg || message).mimetype || ''
         let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]
         const stream = await downloadContentFromMessage(message, messageType)
@@ -546,7 +546,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} options 
      * @returns 
      */
-    XeonBotInc.copyNForward = async (jid, message, forceForward = false, options = {}) => {
+    ScarletBotInc.copyNForward = async (jid, message, forceForward = false, options = {}) => {
         let vtype
 		if (options.readViewOnce) {
 			message.message = message.message && message.message.ephemeralMessage && message.message.ephemeralMessage.message ? message.message.ephemeralMessage.message : (message.message || undefined)
@@ -577,12 +577,12 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
                 }
             } : {})
         } : {})
-        await XeonBotInc.relayMessage(jid, waMessage.message, { messageId:  waMessage.key.id })
+        await ScarletBotInc.relayMessage(jid, waMessage.message, { messageId:  waMessage.key.id })
         return waMessage
     }
 
 //sendlistmsg by xeon
-        XeonBotInc.sendListMsg = (jid, text = '', footer = '', title = '' , butText = '', sects = [], quoted) => {
+        ScarletBotInc.sendListMsg = (jid, text = '', footer = '', title = '' , butText = '', sects = [], quoted) => {
         let sections = sects
         var listMes = {
         text: text,
@@ -591,10 +591,10 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
         buttonText: butText,
         sections
         }
-        XeonBotInc.sendMessage(jid, listMes, { quoted: quoted })
+        ScarletBotInc.sendMessage(jid, listMes, { quoted: quoted })
         }
         
-    XeonBotInc.cMod = (jid, copy, text = '', sender = XeonBotInc.user.id, options = {}) => {
+    ScarletBotInc.cMod = (jid, copy, text = '', sender = XeonBotInc.user.id, options = {}) => {
         //let copy = message.toJSON()
 		let mtype = Object.keys(copy.message)[0]
 		let isEphemeral = mtype === 'ephemeralMessage'
@@ -626,7 +626,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
      * @param {*} path 
      * @returns 
      */
-    XeonBotInc.getFile = async (PATH, save) => {
+    ScarletBotInc.getFile = async (PATH, save) => {
         let res
         let data = Buffer.isBuffer(PATH) ? PATH : /^data:.*?\/.*?;base64,/i.test(PATH) ? Buffer.from(PATH.split`,`[1], 'base64') : /^https?:\/\//.test(PATH) ? await (res = await getBuffer(PATH)) : fs.existsSync(PATH) ? (filename = PATH, fs.readFileSync(PATH)) : typeof PATH === 'string' ? PATH : Buffer.alloc(0)
         //if (!Buffer.isBuffer(data)) throw new TypeError('Result is not a buffer')
@@ -646,7 +646,7 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
 
     }
     //send5butgif by xeon
-        XeonBotInc.send5ButGif = async (jid , text = '' , footer = '', gif, but = [], options = {}) =>{
+        ScarletBotInc.send5ButGif = async (jid , text = '' , footer = '', gif, but = [], options = {}) =>{
         let message = await prepareWAMessageMedia({ video: gif, gifPlayback: true }, { upload: XeonBotInc.waUploadToServer })
         var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
         templateMessage: {
@@ -658,10 +658,10 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
             }
             }
             }), options)
-            XeonBotInc.relayMessage(jid, template.message, { messageId: template.key.id })
+            ScarletBotInc.relayMessage(jid, template.message, { messageId: template.key.id })
     }
     //send5butvid by xeon
-        XeonBotInc.send5ButVid = async (jid , text = '' , footer = '', vid, but = [], options = {}) =>{
+        ScarletBotInc.send5ButVid = async (jid , text = '' , footer = '', vid, but = [], options = {}) =>{
         let message = await prepareWAMessageMedia({ video: vid }, { upload: XeonBotInc.waUploadToServer })
         var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
         templateMessage: {
@@ -673,20 +673,20 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
             }
             }
             }), options)
-            XeonBotInc.relayMessage(jid, template.message, { messageId: template.key.id })
+            ScarletBotInc.relayMessage(jid, template.message, { messageId: template.key.id })
     }
     //send5butmsg
-            XeonBotInc.send5ButMsg = (jid, text = '' , footer = '', but = []) =>{
+            ScarletBotInc.send5ButMsg = (jid, text = '' , footer = '', but = []) =>{
         let templateButtons = but
         var templateMessage = {
         text: text,
         footer: footer,
         templateButtons: templateButtons
         }
-        XeonBotInc.sendMessage(jid, templateMessage)
+        ScarletBotInc.sendMessage(jid, templateMessage)
         }
         
-    XeonBotInc.sendFile = async(jid, PATH, fileName, quoted = {}, options = {}) => {
+    ScarletBotInc.sendFile = async(jid, PATH, fileName, quoted = {}, options = {}) => {
         let types = await XeonBotInc.getFile(PATH, true)
         let { filename, size, ext, mime, data } = types
         let type = '', mimetype = mime, pathFile = filename
@@ -706,14 +706,14 @@ XeonBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
         await XeonBotInc.sendMessage(jid, { [type]: { url: pathFile }, mimetype, fileName, ...options }, { quoted, ...options })
         return fs.promises.unlink(pathFile)
     }
-    XeonBotInc.parseMention = async(text) => {
+    ScarletBotInc.parseMention = async(text) => {
         return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')
     }
 
-    return XeonBotInc
+    return ScarletBotInc
 }
 
-startXeonBotInc()
+startScarletBotInc()
 
 
 let file = require.resolve(__filename)
